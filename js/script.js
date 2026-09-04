@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initOrbParallax();
     initButtonRipples();
     initNavbar();
-    initNetworkAnimation();
     initMobileMenu();
+    initNetworkAnimation();
 
 });
 
@@ -41,8 +41,12 @@ function initScrollReveal() {
 
 
         if (
-            element.classList.contains("small-placeholder-card") ||
-            element.classList.contains("topic-card")
+            element.classList.contains(
+                "small-placeholder-card"
+            ) ||
+            element.classList.contains(
+                "topic-card"
+            )
         ) {
 
             element.style.setProperty(
@@ -55,29 +59,36 @@ function initScrollReveal() {
     });
 
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
-            entries.forEach((entry) => {
+                entries.forEach((entry) => {
 
-                if (!entry.isIntersecting) {
-                    return;
-                }
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-                entry.target.classList.add("revealed");
 
-                observer.unobserve(entry.target);
+                    entry.target.classList.add(
+                        "revealed"
+                    );
 
-            });
 
-        },
-        {
-            threshold: 0.12,
+                    observer.unobserve(
+                        entry.target
+                    );
 
-            rootMargin:
-                "0px 0px -50px 0px"
-        }
-    );
+                });
+
+            },
+            {
+                threshold: 0.12,
+
+                rootMargin:
+                    "0px 0px -50px 0px"
+            }
+        );
 
 
     elements.forEach((element) => {
@@ -97,7 +108,9 @@ function initScrollReveal() {
 function initCursorGlow() {
 
     const isTouchDevice =
-        window.matchMedia("(pointer: coarse)").matches;
+        window.matchMedia(
+            "(pointer: coarse)"
+        ).matches;
 
 
     if (isTouchDevice) {
@@ -113,7 +126,9 @@ function initCursorGlow() {
         "cursor-glow";
 
 
-    document.body.appendChild(glow);
+    document.body.appendChild(
+        glow
+    );
 
 
     let mouseX =
@@ -160,7 +175,9 @@ function initCursorGlow() {
             `translate3d(${currentX}px, ${currentY}px, 0)`;
 
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(
+            animate
+        );
 
     }
 
@@ -178,7 +195,9 @@ function initCursorGlow() {
 function initCardTilt() {
 
     const isTouchDevice =
-        window.matchMedia("(pointer: coarse)").matches;
+        window.matchMedia(
+            "(pointer: coarse)"
+        ).matches;
 
 
     if (isTouchDevice) {
@@ -223,11 +242,13 @@ function initCardTilt() {
 
 
                 const rotateX =
-                    ((y - centerY) / centerY) * -3;
+                    ((y - centerY) /
+                        centerY) * -3;
 
 
                 const rotateY =
-                    ((x - centerX) / centerX) * 3;
+                    ((x - centerX) /
+                        centerX) * 3;
 
 
                 card.style.setProperty(
@@ -256,7 +277,8 @@ function initCardTilt() {
             "mouseleave",
             () => {
 
-                card.style.transform = "";
+                card.style.transform =
+                    "";
 
             }
         );
@@ -352,7 +374,9 @@ function initButtonRipples() {
 
 
                 const ripple =
-                    document.createElement("span");
+                    document.createElement(
+                        "span"
+                    );
 
 
                 ripple.className =
@@ -367,7 +391,9 @@ function initButtonRipples() {
                     `${event.clientY - rect.top}px`;
 
 
-                button.appendChild(ripple);
+                button.appendChild(
+                    ripple
+                );
 
 
                 setTimeout(() => {
@@ -402,10 +428,6 @@ function initNavbar() {
     }
 
 
-    let lastScrollY =
-        window.scrollY;
-
-
     window.addEventListener(
         "scroll",
         () => {
@@ -413,6 +435,12 @@ function initNavbar() {
             const currentScrollY =
                 window.scrollY;
 
+
+            /*
+                Add the scrolled state so the
+                navbar can change appearance
+                after the user starts scrolling.
+            */
 
             if (currentScrollY > 30) {
 
@@ -430,33 +458,13 @@ function initNavbar() {
 
 
             /*
-                Don't hide the navbar while
-                the mobile menu is open.
+                The navbar intentionally stays
+                visible while scrolling.
             */
 
-            if (
-                currentScrollY > lastScrollY &&
-                currentScrollY > 200 &&
-                !navbar.classList.contains(
-                    "menu-open"
-                )
-            ) {
-
-                navbar.classList.add(
-                    "navbar-hidden"
-                );
-
-            } else {
-
-                navbar.classList.remove(
-                    "navbar-hidden"
-                );
-
-            }
-
-
-            lastScrollY =
-                currentScrollY;
+            navbar.classList.remove(
+                "navbar-hidden"
+            );
 
         },
         {
@@ -486,30 +494,37 @@ function initMobileMenu() {
         );
 
 
-    const navLinks =
-        document.querySelectorAll(
-            ".nav-link"
+    const mobileMenu =
+        document.querySelector(
+            ".mobile-menu"
         );
 
 
     if (
         !navbar ||
-        !menuToggle
+        !menuToggle ||
+        !mobileMenu
     ) {
 
         return;
     }
 
 
+    const mobileLinks =
+        mobileMenu.querySelectorAll(
+            ".mobile-nav-link"
+        );
+
+
+
+    /* =================================
+       OPEN MENU
+    ================================= */
+
     function openMenu() {
 
         navbar.classList.add(
             "menu-open"
-        );
-
-
-        menuToggle.classList.add(
-            "is-open"
         );
 
 
@@ -525,11 +540,6 @@ function initMobileMenu() {
         );
 
 
-        document.body.classList.add(
-            "menu-open"
-        );
-
-
         navbar.classList.remove(
             "navbar-hidden"
         );
@@ -537,15 +547,15 @@ function initMobileMenu() {
     }
 
 
+
+    /* =================================
+       CLOSE MENU
+    ================================= */
+
     function closeMenu() {
 
         navbar.classList.remove(
             "menu-open"
-        );
-
-
-        menuToggle.classList.remove(
-            "is-open"
         );
 
 
@@ -560,42 +570,44 @@ function initMobileMenu() {
             "Open navigation menu"
         );
 
-
-        document.body.classList.remove(
-            "menu-open"
-        );
-
     }
 
 
-    function toggleMenu() {
 
-        const isOpen =
-            navbar.classList.contains(
-                "menu-open"
-            );
-
-
-        if (isOpen) {
-
-            closeMenu();
-
-        } else {
-
-            openMenu();
-
-        }
-
-    }
-
+    /* =================================
+       TOGGLE MENU
+    ================================= */
 
     menuToggle.addEventListener(
         "click",
-        toggleMenu
+        () => {
+
+            const isOpen =
+                navbar.classList.contains(
+                    "menu-open"
+                );
+
+
+            if (isOpen) {
+
+                closeMenu();
+
+            } else {
+
+                openMenu();
+
+            }
+
+        }
     );
 
 
-    navLinks.forEach((link) => {
+
+    /* =================================
+       CLOSE AFTER NAVIGATION
+    ================================= */
+
+    mobileLinks.forEach((link) => {
 
         link.addEventListener(
             "click",
@@ -609,19 +621,10 @@ function initMobileMenu() {
     });
 
 
-    window.addEventListener(
-        "resize",
-        () => {
 
-            if (window.innerWidth > 600) {
-
-                closeMenu();
-
-            }
-
-        }
-    );
-
+    /* =================================
+       ESCAPE KEY
+    ================================= */
 
     document.addEventListener(
         "keydown",
@@ -637,6 +640,27 @@ function initMobileMenu() {
                 closeMenu();
 
                 menuToggle.focus();
+
+            }
+
+        }
+    );
+
+
+
+    /* =================================
+       CLOSE ON DESKTOP RESIZE
+    ================================= */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 600
+            ) {
+
+                closeMenu();
 
             }
 
