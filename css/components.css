@@ -66,6 +66,10 @@
 
 .button {
 
+    position: relative;
+
+    overflow: hidden;
+
     min-height: 48px;
 
     display: inline-flex;
@@ -118,7 +122,7 @@
 
     box-shadow:
         0 10px 40px
-        rgba(124, 92, 255, 0.18);
+        rgba(114, 87, 255, 0.22);
 }
 
 
@@ -133,7 +137,7 @@
 .button-secondary {
 
     background:
-        rgba(255, 255, 255, 0.025);
+        rgba(255, 255, 255, 0.035);
 
     color: var(--text);
 }
@@ -176,7 +180,17 @@
 
     letter-spacing: -0.055em;
 
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+
+    word-break: normal;
+}
+
+
+/* LIGHT SECTION */
+
+.about-section .section-header h2 {
+
+    color: var(--light-text);
 }
 
 
@@ -191,16 +205,22 @@
     position: relative;
 
     border:
-        1px solid var(--border);
+        1px solid var(--light-border);
 
     background:
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.035),
-            rgba(255, 255, 255, 0.012)
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0.45)
         );
 
+    color: var(--light-text);
+
     overflow: hidden;
+
+    box-shadow:
+        0 20px 60px
+        rgba(20, 30, 45, 0.06);
 }
 
 
@@ -233,20 +253,20 @@
     border-radius: 50%;
 
     border:
-        1px solid var(--border);
+        1px solid var(--light-border);
 
     box-shadow:
         0 0 0 40px
-        rgba(124, 92, 255, 0.02),
+        rgba(114, 87, 255, 0.035),
 
         0 0 0 80px
-        rgba(124, 92, 255, 0.015);
+        rgba(114, 87, 255, 0.02);
 }
 
 
 .card-number {
 
-    color: var(--text-muted);
+    color: var(--light-text-muted);
 
     font-size:
         clamp(0.55rem, 0.7vw, 0.65rem);
@@ -276,7 +296,7 @@
 
     display: block;
 
-    color: var(--accent-light);
+    color: var(--accent);
 
     font-size:
         clamp(0.52rem, 0.7vw, 0.62rem);
@@ -298,13 +318,15 @@
 
     margin-bottom: 12px;
 
-    overflow-wrap: anywhere;
+    color: var(--light-text);
+
+    overflow-wrap: normal;
 }
 
 
 .card-content p {
 
-    color: var(--text-muted);
+    color: var(--light-text-muted);
 
     line-height: 1.6;
 
@@ -339,7 +361,7 @@
     transform: translateX(6px);
 
     border-color:
-        rgba(156, 132, 255, 0.35);
+        rgba(114, 87, 255, 0.35);
 }
 
 
@@ -350,7 +372,9 @@
 
     letter-spacing: -0.04em;
 
-    overflow-wrap: anywhere;
+    color: var(--light-text);
+
+    overflow-wrap: normal;
 }
 
 
@@ -376,7 +400,14 @@
     border:
         1px solid var(--border);
 
-    background: var(--surface);
+    background:
+        linear-gradient(
+            145deg,
+            #111722,
+            #0D121B
+        );
+
+    color: var(--text);
 
     overflow: hidden;
 
@@ -392,9 +423,14 @@
     transform: translateY(-8px);
 
     border-color:
-        rgba(156, 132, 255, 0.4);
+        rgba(148, 127, 255, 0.4);
 
-    background: var(--surface-light);
+    background:
+        linear-gradient(
+            145deg,
+            #172030,
+            #101620
+        );
 }
 
 
@@ -403,8 +439,8 @@
     background:
         linear-gradient(
             145deg,
-            rgba(124, 92, 255, 0.13),
-            rgba(10, 12, 17, 1)
+            rgba(114, 87, 255, 0.18),
+            #101620
         );
 }
 
@@ -482,7 +518,7 @@
     letter-spacing: 0.05em;
 
     background:
-        rgba(124, 92, 255, 0.06);
+        rgba(114, 87, 255, 0.08);
 }
 
 
@@ -495,7 +531,9 @@
 
     margin-bottom: 10px;
 
-    overflow-wrap: anywhere;
+    color: var(--text);
+
+    overflow-wrap: normal;
 }
 
 
@@ -529,7 +567,7 @@
         1px solid var(--border);
 
     background:
-        rgba(10, 12, 17, 0.75);
+        rgba(17, 23, 34, 0.78);
 
     backdrop-filter: blur(10px);
 
@@ -563,6 +601,35 @@
     border-radius: 50%;
 
     background: var(--accent-light);
+}
+
+
+
+/* =========================================
+   VISUAL SECTION
+========================================= */
+
+.visual-text {
+
+    color: var(--light-text);
+}
+
+
+.visual-text .section-eyebrow {
+
+    color: var(--accent);
+}
+
+
+.visual-text h2 {
+
+    color: var(--light-text);
+}
+
+
+.visual-text p {
+
+    color: var(--light-text-muted);
 }
 
 
@@ -603,6 +670,8 @@
     letter-spacing: 0.12em;
 }
 
+
+
 /* =========================================
    INTERACTIVE CARD GLOW
 ========================================= */
@@ -631,7 +700,7 @@
     background:
         radial-gradient(
             circle,
-            rgba(124, 92, 255, 0.13),
+            rgba(114, 87, 255, 0.13),
             transparent 70%
         );
 
@@ -656,14 +725,6 @@
 /* =========================================
    BUTTON RIPPLE
 ========================================= */
-
-.button {
-
-    position: relative;
-
-    overflow: hidden;
-}
-
 
 .button-ripple {
 
@@ -724,14 +785,14 @@
 .navbar-scrolled {
 
     background:
-        rgba(5, 6, 9, 0.9);
+        rgba(8, 11, 18, 0.93);
 
     border-color:
-        rgba(156, 132, 255, 0.14);
+        rgba(148, 127, 255, 0.16);
 
     box-shadow:
         0 10px 40px
-        rgba(0, 0, 0, 0.2);
+        rgba(0, 0, 0, 0.25);
 }
 
 
@@ -767,7 +828,7 @@
 
         box-shadow:
             0 0 30px
-            rgba(124, 92, 255, 0.08);
+            rgba(114, 87, 255, 0.08);
 
         border-color:
             var(--border-bright);
@@ -777,10 +838,10 @@
 
         box-shadow:
             0 0 45px
-            rgba(124, 92, 255, 0.25);
+            rgba(114, 87, 255, 0.25);
 
         border-color:
-            rgba(156, 132, 255, 0.35);
+            rgba(148, 127, 255, 0.35);
     }
 
 }
@@ -804,6 +865,8 @@
         background 0.35s ease;
 }
 
+
+
 /* =========================================
    CURSOR GLOW
 ========================================= */
@@ -813,9 +876,11 @@
     position: fixed;
 
     top: 0;
+
     left: 0;
 
     width: 280px;
+
     height: 280px;
 
     margin:
@@ -826,8 +891,8 @@
     background:
         radial-gradient(
             circle,
-            rgba(124, 92, 255, 0.09),
-            rgba(124, 92, 255, 0.025) 35%,
+            rgba(114, 87, 255, 0.09),
+            rgba(114, 87, 255, 0.025) 35%,
             transparent 70%
         );
 

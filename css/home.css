@@ -60,7 +60,9 @@
 
     font-weight: 800;
 
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+
+    word-break: normal;
 }
 
 
@@ -73,6 +75,8 @@
 .hero h1 .accent {
 
     color: var(--accent-light);
+
+    white-space: nowrap;
 }
 
 
@@ -144,8 +148,8 @@
     background:
         radial-gradient(
             circle at center,
-            rgba(124, 92, 255, 0.28),
-            rgba(124, 92, 255, 0.04) 42%,
+            rgba(114, 87, 255, 0.28),
+            rgba(114, 87, 255, 0.04) 42%,
             transparent 68%
         );
 }
@@ -169,14 +173,14 @@
 
     border:
         1px solid
-        rgba(156, 132, 255, 0.5);
+        rgba(148, 127, 255, 0.5);
 
     background:
-        rgba(124, 92, 255, 0.08);
+        rgba(114, 87, 255, 0.08);
 
     box-shadow:
         0 0 80px
-        rgba(124, 92, 255, 0.35);
+        rgba(114, 87, 255, 0.35);
 
     font-size:
         clamp(1rem, 2vw, 1.4rem);
@@ -197,7 +201,7 @@
 
     border:
         1px solid
-        rgba(156, 132, 255, 0.16);
+        rgba(148, 127, 255, 0.16);
 }
 
 
@@ -384,14 +388,14 @@
 
     border:
         1px solid
-        rgba(156, 132, 255, 0.5);
+        rgba(114, 87, 255, 0.5);
 
     background:
-        rgba(124, 92, 255, 0.12);
+        rgba(114, 87, 255, 0.12);
 
     box-shadow:
         0 0 100px
-        rgba(124, 92, 255, 0.2);
+        rgba(114, 87, 255, 0.2);
 
     text-align: center;
 
@@ -421,11 +425,13 @@
     border-radius: 50%;
 
     border:
-        1px solid var(--border-bright);
+        1px solid
+        rgba(10, 15, 25, 0.2);
 
-    background: var(--surface);
+    background:
+        rgba(245, 247, 250, 0.9);
 
-    color: var(--accent-light);
+    color: var(--accent);
 
     font-size:
         clamp(0.52rem, 0.7vw, 0.65rem);
@@ -436,7 +442,7 @@
 
     box-shadow:
         0 0 30px
-        rgba(124, 92, 255, 0.1);
+        rgba(20, 30, 45, 0.08);
 }
 
 
@@ -489,7 +495,7 @@
     background:
         linear-gradient(
             90deg,
-            rgba(124, 92, 255, 0.5),
+            rgba(114, 87, 255, 0.5),
             transparent
         );
 }
@@ -543,7 +549,11 @@
 
     margin-bottom: 30px;
 
-    overflow-wrap: anywhere;
+    color: var(--light-text);
+
+    overflow-wrap: normal;
+
+    word-break: normal;
 }
 
 
@@ -551,7 +561,7 @@
 
     max-width: 450px;
 
-    color: var(--text-muted);
+    color: var(--light-text-muted);
 
     line-height: 1.7;
 
@@ -608,7 +618,9 @@
 
     margin-bottom: 30px;
 
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+
+    word-break: normal;
 }
 
 
@@ -626,6 +638,8 @@
     font-size:
         clamp(0.8rem, 1vw, 1rem);
 }
+
+
 
 /* =========================================
    HERO ENTRANCE ANIMATION
@@ -754,14 +768,14 @@
 
         box-shadow:
             0 0 70px
-            rgba(124, 92, 255, 0.25);
+            rgba(114, 87, 255, 0.25);
     }
 
     50% {
 
         box-shadow:
             0 0 110px
-            rgba(124, 92, 255, 0.45);
+            rgba(114, 87, 255, 0.45);
     }
 
 }
@@ -986,12 +1000,6 @@
    FINAL SECTION GLOW
 ========================================= */
 
-.final-section {
-
-    position: relative;
-}
-
-
 .final-section::before {
 
     content: "";
@@ -1016,7 +1024,7 @@
     background:
         radial-gradient(
             circle,
-            rgba(124, 92, 255, 0.12),
+            rgba(114, 87, 255, 0.12),
             transparent 70%
         );
 

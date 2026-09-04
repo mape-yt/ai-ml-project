@@ -194,10 +194,16 @@
 
         font-size:
             clamp(
-                2.5rem,
-                13vw,
+                2.15rem,
+                11.5vw,
                 4.5rem
             );
+    }
+
+
+    .hero h1 .accent {
+
+        white-space: nowrap;
     }
 
 
@@ -423,7 +429,7 @@
 
     .hero h1 {
 
-        font-size: 2.35rem;
+        font-size: 2.2rem;
     }
 
 
@@ -513,6 +519,8 @@
     }
 
 }
+
+
 
 /* =========================================
    TOUCH DEVICES

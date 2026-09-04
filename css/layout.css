@@ -113,7 +113,7 @@
         1px solid var(--border);
 
     background:
-        rgba(5, 6, 9, 0.72);
+        rgba(8, 11, 18, 0.78);
 
     backdrop-filter: blur(18px);
 
@@ -200,6 +200,10 @@
 
 .section {
 
+    position: relative;
+
+    isolation: isolate;
+
     width: min(
         100%,
         var(--max-width)
@@ -212,6 +216,186 @@
         var(--page-padding);
 }
 
+
+/* =========================================
+   ALTERNATING SECTION BACKGROUNDS
+========================================= */
+
+/*
+    DARK
+    Hero
+*/
+
+.hero {
+
+    position: relative;
+
+    isolation: isolate;
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 100vw;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #080B12 0%,
+            #0A0E17 55%,
+            #080B12 100%
+        );
+
+    z-index: -1;
+}
+
+
+/*
+    LIGHT
+    About
+*/
+
+.about-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 100vw;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #E8ECF3 0%,
+            #EEF1F6 50%,
+            #E3E8F0 100%
+        );
+
+    border-top:
+        1px solid var(--light-border);
+
+    border-bottom:
+        1px solid var(--light-border);
+
+    z-index: -1;
+}
+
+
+/*
+    DARK
+    Topics
+*/
+
+.topics-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 100vw;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            135deg,
+            #080B12 0%,
+            #0B1019 50%,
+            #080B12 100%
+        );
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+
+    z-index: -1;
+}
+
+
+/*
+    LIGHT
+    Visual
+*/
+
+.visual-section {
+
+    position: relative;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            135deg,
+            #E8ECF3 0%,
+            #EEF1F6 50%,
+            #E3E8F0 100%
+        );
+
+    border-top:
+        1px solid var(--light-border);
+
+    border-bottom:
+        1px solid var(--light-border);
+
+    color: var(--light-text);
+}
+
+
+/*
+    DARK
+    Final
+*/
+
+.final-section {
+
+    position: relative;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            135deg,
+            #080B12 0%,
+            #0A0E17 50%,
+            #080B12 100%
+        );
+
+    color: var(--text);
+}
+
+
+
+/* =========================================
+   SECTION HEADERS
+========================================= */
 
 .section-header {
 
@@ -241,6 +425,26 @@
     letter-spacing: 0.12em;
 
     padding-top: 9px;
+}
+
+
+/* LIGHT SECTION HEADER */
+
+.about-section .section-header {
+
+    color: var(--light-text);
+}
+
+
+.about-section .section-eyebrow {
+
+    color: var(--accent);
+}
+
+
+.about-section .section-number {
+
+    color: var(--accent);
 }
 
 
@@ -298,22 +502,6 @@
    VISUAL SECTION LAYOUT
 ========================================= */
 
-.visual-section {
-
-    padding:
-        var(--section-padding)
-        var(--page-padding);
-
-    border-top:
-        1px solid var(--border);
-
-    border-bottom:
-        1px solid var(--border);
-
-    overflow: hidden;
-}
-
-
 .visual-container {
 
     width: min(
@@ -368,6 +556,8 @@
 
     border-top:
         1px solid var(--border);
+
+    background: #06090F;
 
     display: flex;
 
