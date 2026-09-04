@@ -1,0 +1,379 @@
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background-grid {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        clamp(45px, 5vw, 70px)
+        clamp(45px, 5vw, 70px);
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            transparent 80%
+        );
+}
+
+
+.background-glow {
+
+    position: fixed;
+
+    width:
+        clamp(300px, 45vw, 650px);
+
+    height:
+        clamp(300px, 45vw, 650px);
+
+    border-radius: 50%;
+
+    filter:
+        blur(
+            clamp(80px, 10vw, 140px)
+        );
+
+    opacity: 0.15;
+
+    pointer-events: none;
+
+    z-index: -4;
+}
+
+
+.glow-one {
+
+    top: -250px;
+
+    left: -200px;
+
+    background: var(--accent);
+}
+
+
+.glow-two {
+
+    right: -250px;
+
+    top: 35%;
+
+    background: #2d6cff;
+}
+
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    min-height: 76px;
+
+    padding:
+        12px var(--page-padding);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    z-index: 100;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(5, 6, 9, 0.72);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+.logo {
+
+    flex-shrink: 0;
+
+    font-size:
+        clamp(1rem, 1.5vw, 1.25rem);
+
+    font-weight: 800;
+
+    letter-spacing: -0.05em;
+}
+
+
+.logo span {
+
+    color: var(--accent-light);
+
+    margin: 0 2px;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(18px, 3vw, 40px);
+
+    margin-left: auto;
+}
+
+
+.nav-status {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.48rem, 0.65vw, 0.65rem);
+
+    letter-spacing: 0.12em;
+
+    white-space: nowrap;
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--accent-light);
+
+    box-shadow:
+        0 0 10px var(--accent-light);
+}
+
+
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.section {
+
+    width: min(
+        100%,
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
+    padding:
+        var(--section-padding)
+        var(--page-padding);
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap:
+        clamp(18px, 2.5vw, 30px);
+
+    margin-bottom:
+        clamp(45px, 6vw, 70px);
+}
+
+
+.section-number {
+
+    flex-shrink: 0;
+
+    color: var(--accent-light);
+
+    font-size:
+        clamp(0.55rem, 0.75vw, 0.7rem);
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    padding-top: 9px;
+}
+
+
+
+/* =========================================
+   ABOUT LAYOUT
+========================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(0, 1fr);
+
+    gap: 20px;
+}
+
+
+.placeholder-stack {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+
+/* =========================================
+   TOPIC GRID
+========================================= */
+
+.topic-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                min(100%, 240px),
+                1fr
+            )
+        );
+
+    gap: 14px;
+}
+
+
+
+/* =========================================
+   VISUAL SECTION LAYOUT
+========================================= */
+
+.visual-section {
+
+    padding:
+        var(--section-padding)
+        var(--page-padding);
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+
+    overflow: hidden;
+}
+
+
+.visual-container {
+
+    width: min(
+        100%,
+        var(--max-width)
+    );
+
+    min-height:
+        clamp(500px, 55vw, 650px);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
+    align-items: center;
+
+    gap:
+        clamp(50px, 8vw, 120px);
+}
+
+
+.visual-network {
+
+    position: relative;
+
+    width: min(
+        100%,
+        650px
+    );
+
+    aspect-ratio: 1 / 1;
+
+    margin: auto;
+}
+
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    min-height: 100px;
+
+    padding:
+        30px var(--page-padding);
+
+    border-top:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}

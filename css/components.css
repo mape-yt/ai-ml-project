@@ -1,0 +1,842 @@
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.nav-link {
+
+    position: relative;
+
+    padding: 10px 0;
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.62rem, 0.8vw, 0.78rem);
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 2px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--accent-light);
+
+    transition:
+        width 0.25s ease;
+}
+
+
+.nav-link:hover {
+
+    color: var(--text);
+}
+
+
+.nav-link:hover::after {
+
+    width: 100%;
+}
+
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.button {
+
+    min-height: 48px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding:
+        10px
+        clamp(16px, 2vw, 22px);
+
+    border:
+        1px solid var(--border);
+
+    font-size:
+        clamp(0.6rem, 0.75vw, 0.72rem);
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.button:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        var(--border-bright);
+}
+
+
+.button-primary {
+
+    background: var(--accent);
+
+    border-color: var(--accent);
+
+    color: white;
+
+    box-shadow:
+        0 10px 40px
+        rgba(124, 92, 255, 0.18);
+}
+
+
+.button-primary:hover {
+
+    background: var(--accent-light);
+
+    border-color: var(--accent-light);
+}
+
+
+.button-secondary {
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: var(--text);
+}
+
+
+
+/* =========================================
+   SECTION HEADERS
+========================================= */
+
+.eyebrow,
+.section-eyebrow {
+
+    color: var(--accent-light);
+
+    font-size:
+        clamp(0.52rem, 0.75vw, 0.68rem);
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    margin-bottom:
+        clamp(16px, 2vw, 22px);
+}
+
+
+.section-header h2 {
+
+    font-size:
+        clamp(
+            2.1rem,
+            5vw,
+            5rem
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -0.055em;
+
+    overflow-wrap: anywhere;
+}
+
+
+
+/* =========================================
+   ABOUT CARDS
+========================================= */
+
+.large-placeholder-card,
+.small-placeholder-card {
+
+    position: relative;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    overflow: hidden;
+}
+
+
+.large-placeholder-card {
+
+    min-height:
+        clamp(350px, 35vw, 430px);
+
+    padding:
+        clamp(25px, 3vw, 40px);
+}
+
+
+.large-placeholder-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width:
+        clamp(200px, 25vw, 300px);
+
+    height:
+        clamp(200px, 25vw, 300px);
+
+    right: -100px;
+
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 0 0 40px
+        rgba(124, 92, 255, 0.02),
+
+        0 0 0 80px
+        rgba(124, 92, 255, 0.015);
+}
+
+
+.card-number {
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.55rem, 0.7vw, 0.65rem);
+
+    letter-spacing: 0.12em;
+}
+
+
+.card-content {
+
+    position: absolute;
+
+    left:
+        clamp(25px, 3vw, 40px);
+
+    right:
+        clamp(25px, 3vw, 40px);
+
+    bottom:
+        clamp(25px, 3vw, 40px);
+
+    max-width: 500px;
+}
+
+
+.card-label {
+
+    display: block;
+
+    color: var(--accent-light);
+
+    font-size:
+        clamp(0.52rem, 0.7vw, 0.62rem);
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    margin-bottom: 12px;
+}
+
+
+.card-content h3 {
+
+    font-size:
+        clamp(1.7rem, 2.5vw, 2.3rem);
+
+    letter-spacing: -0.04em;
+
+    margin-bottom: 12px;
+
+    overflow-wrap: anywhere;
+}
+
+
+.card-content p {
+
+    color: var(--text-muted);
+
+    line-height: 1.6;
+
+    font-size:
+        clamp(0.8rem, 1vw, 1rem);
+}
+
+
+.small-placeholder-card {
+
+    flex: 1;
+
+    min-height: 170px;
+
+    padding:
+        clamp(25px, 3vw, 35px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.small-placeholder-card:hover {
+
+    transform: translateX(6px);
+
+    border-color:
+        rgba(156, 132, 255, 0.35);
+}
+
+
+.small-placeholder-card strong {
+
+    font-size:
+        clamp(1.35rem, 2vw, 1.7rem);
+
+    letter-spacing: -0.04em;
+
+    overflow-wrap: anywhere;
+}
+
+
+
+/* =========================================
+   TOPIC CARDS
+========================================= */
+
+.topic-card {
+
+    position: relative;
+
+    min-height:
+        clamp(280px, 30vw, 340px);
+
+    padding:
+        clamp(20px, 2vw, 25px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    border:
+        1px solid var(--border);
+
+    background: var(--surface);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+
+.topic-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(156, 132, 255, 0.4);
+
+    background: var(--surface-light);
+}
+
+
+.topic-card.featured {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(124, 92, 255, 0.13),
+            rgba(10, 12, 17, 1)
+        );
+}
+
+
+.topic-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.topic-number {
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.52rem, 0.7vw, 0.62rem);
+
+    letter-spacing: 0.1em;
+}
+
+
+.topic-arrow {
+
+    font-size: 1.2rem;
+
+    color: var(--text-muted);
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.topic-card:hover .topic-arrow {
+
+    transform:
+        translate(4px, -4px);
+
+    color: var(--accent-light);
+}
+
+
+.topic-icon {
+
+    margin-top: auto;
+
+    margin-bottom: 30px;
+
+    width:
+        clamp(60px, 6vw, 70px);
+
+    height:
+        clamp(60px, 6vw, 70px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    color: var(--accent-light);
+
+    font-size:
+        clamp(0.7rem, 0.9vw, 0.8rem);
+
+    font-weight: 800;
+
+    letter-spacing: 0.05em;
+
+    background:
+        rgba(124, 92, 255, 0.06);
+}
+
+
+.topic-card h3 {
+
+    font-size:
+        clamp(1.15rem, 1.5vw, 1.35rem);
+
+    letter-spacing: -0.03em;
+
+    margin-bottom: 10px;
+
+    overflow-wrap: anywhere;
+}
+
+
+.topic-card p {
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.72rem, 0.9vw, 0.82rem);
+
+    line-height: 1.6;
+}
+
+
+
+/* =========================================
+   FLOATING LABELS
+========================================= */
+
+.floating-label {
+
+    position: absolute;
+
+    max-width: 45%;
+
+    padding:
+        8px
+        clamp(9px, 1.3vw, 13px);
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(10, 12, 17, 0.75);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.42rem, 0.65vw, 0.6rem);
+
+    letter-spacing: 0.1em;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.floating-label span {
+
+    display: inline-block;
+
+    width: 5px;
+
+    height: 5px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: var(--accent-light);
+}
+
+
+
+/* =========================================
+   FOOTER COMPONENTS
+========================================= */
+
+.footer-logo {
+
+    flex-shrink: 0;
+
+    font-size:
+        clamp(0.95rem, 1.3vw, 1.1rem);
+
+    font-weight: 800;
+
+    letter-spacing: -0.05em;
+}
+
+
+.footer-logo span {
+
+    color: var(--accent-light);
+
+    margin: 0 2px;
+}
+
+
+.footer-text,
+.footer-year {
+
+    color: var(--text-muted);
+
+    font-size:
+        clamp(0.48rem, 0.65vw, 0.6rem);
+
+    letter-spacing: 0.12em;
+}
+
+/* =========================================
+   INTERACTIVE CARD GLOW
+========================================= */
+
+.topic-card::after,
+.small-placeholder-card::after,
+.large-placeholder-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    left: var(--mouse-x, 50%);
+
+    top: var(--mouse-y, 50%);
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 92, 255, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+.topic-card:hover::after,
+.small-placeholder-card:hover::after,
+.large-placeholder-card:hover::after {
+
+    opacity: 1;
+}
+
+
+
+/* =========================================
+   BUTTON RIPPLE
+========================================= */
+
+.button {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.button-ripple {
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.35);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    pointer-events: none;
+
+    animation:
+        button-ripple-animation
+        0.6s
+        ease-out
+        forwards;
+}
+
+
+@keyframes button-ripple-animation {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            scale(25);
+
+        opacity: 0;
+    }
+
+}
+
+
+
+/* =========================================
+   NAVBAR SCROLL STATE
+========================================= */
+
+.navbar {
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.navbar-scrolled {
+
+    background:
+        rgba(5, 6, 9, 0.9);
+
+    border-color:
+        rgba(156, 132, 255, 0.14);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.2);
+}
+
+
+.navbar-hidden {
+
+    transform:
+        translateY(-100%);
+}
+
+
+
+/* =========================================
+   NETWORK NODE PULSE
+========================================= */
+
+.network-node {
+
+    animation:
+        network-node-pulse
+        4s
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--node-delay, 0ms);
+}
+
+
+@keyframes network-node-pulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 30px
+            rgba(124, 92, 255, 0.08);
+
+        border-color:
+            var(--border-bright);
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 45px
+            rgba(124, 92, 255, 0.25);
+
+        border-color:
+            rgba(156, 132, 255, 0.35);
+    }
+
+}
+
+
+
+/* =========================================
+   CARD TRANSITION
+========================================= */
+
+.topic-card,
+.small-placeholder-card,
+.large-placeholder-card {
+
+    will-change:
+        transform;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+/* =========================================
+   CURSOR GLOW
+========================================= */
+
+.cursor-glow {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 280px;
+
+    margin:
+        -140px 0 0 -140px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 92, 255, 0.09),
+            rgba(124, 92, 255, 0.025) 35%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    mix-blend-mode: screen;
+
+    will-change:
+        transform;
+}

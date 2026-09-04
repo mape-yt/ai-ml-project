@@ -1,0 +1,37 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    /* Colors */
+
+    --background: #050609;
+
+    --surface: #0a0c11;
+
+    --surface-light: #10131a;
+
+    --border: rgba(255, 255, 255, 0.09);
+
+    --border-bright: rgba(255, 255, 255, 0.16);
+
+    --text: #f4f5f7;
+
+    --text-muted: #858b98;
+
+    --accent: #7c5cff;
+
+    --accent-light: #9c84ff;
+
+
+    /* Layout */
+
+    --max-width: 1400px;
+
+    --page-padding:
+        clamp(20px, 5vw, 80px);
+
+    --section-padding:
+        clamp(90px, 11vw, 170px);
+}
