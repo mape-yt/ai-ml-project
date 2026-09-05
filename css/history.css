@@ -1,0 +1,948 @@
+/* =========================================
+   AI HISTORY PAGE
+========================================= */
+
+
+/* =========================================
+   PAGE / SCROLLING
+========================================= */
+
+html,
+body {
+
+    min-height: 100%;
+
+}
+
+
+body.history-page {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    overflow-y: auto;
+
+}
+
+
+/*
+    Make sure the page itself is allowed
+    to grow beyond the viewport.
+*/
+
+.history-page main {
+
+    min-height: 100vh;
+
+}
+
+
+
+/* =========================================
+   HISTORY HERO
+========================================= */
+
+.history-hero {
+
+    min-height: 72vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        150px 30px
+        100px;
+
+    position: relative;
+
+}
+
+
+.history-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 950px;
+
+}
+
+
+.history-eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 28px;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+    color: var(--accent);
+
+}
+
+
+.history-eyebrow::before {
+
+    content: "";
+
+    width: 32px;
+
+    height: 1px;
+
+    background: var(--accent);
+
+}
+
+
+.history-hero h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            4rem,
+            10vw,
+            8.5rem
+        );
+
+    line-height: 0.88;
+
+    letter-spacing: -0.06em;
+
+    font-weight: 800;
+
+}
+
+
+.history-hero h1 span {
+
+    display: block;
+
+}
+
+
+.history-hero h1 .accent {
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 40px
+        rgba(
+            120,
+            100,
+            255,
+            0.25
+        );
+
+}
+
+
+.history-intro {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin:
+        35px auto 0;
+
+    color: var(--text-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================================
+   TIMELINE SECTION
+========================================= */
+
+.timeline-section {
+
+    position: relative;
+
+    padding:
+        80px 30px
+        150px;
+
+}
+
+
+.timeline {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    padding-top: 10px;
+
+}
+
+
+
+/* =========================================
+   CENTRAL TIMELINE LINE
+========================================= */
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 2px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--accent),
+            rgba(
+                120,
+                100,
+                255,
+                0.35
+            ),
+            var(--accent),
+            transparent
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(
+            120,
+            100,
+            255,
+            0.35
+        );
+
+}
+
+
+
+/* =========================================
+   TIMELINE ITEM
+========================================= */
+
+.timeline-item {
+
+    position: relative;
+
+    width: 50%;
+
+    padding:
+        0 65px 120px;
+
+}
+
+
+.timeline-item:nth-child(odd) {
+
+    left: 0;
+
+    text-align: right;
+
+}
+
+
+.timeline-item:nth-child(even) {
+
+    left: 50%;
+
+    text-align: left;
+
+}
+
+
+/*
+    Remove excess bottom padding from
+    the final timeline item.
+*/
+
+.timeline-item:last-child {
+
+    padding-bottom: 20px;
+
+}
+
+
+
+/* =========================================
+   TIMELINE NODE
+========================================= */
+
+.timeline-node {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background:
+        var(--background);
+
+    border:
+        2px solid var(--accent);
+
+    box-shadow:
+        0 0 0 6px
+        rgba(
+            120,
+            100,
+            255,
+            0.08
+        ),
+        0 0 25px
+        rgba(
+            120,
+            100,
+            255,
+            0.65
+        );
+
+    z-index: 3;
+
+}
+
+
+.timeline-node::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+}
+
+
+.timeline-item:nth-child(odd)
+.timeline-node {
+
+    right: -9px;
+
+}
+
+
+.timeline-item:nth-child(even)
+.timeline-node {
+
+    left: -9px;
+
+}
+
+
+
+/* =========================================
+   TIMELINE CARD
+========================================= */
+
+.timeline-card {
+
+    position: relative;
+
+    padding: 30px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    backdrop-filter:
+        blur(12px);
+
+    border-radius: 4px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.timeline-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(
+            120,
+            100,
+            255,
+            0.45
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        ),
+        0 0 30px
+        rgba(
+            120,
+            100,
+            255,
+            0.08
+        );
+
+}
+
+
+
+/* =========================================
+   CARD → TIMELINE CONNECTION
+========================================= */
+
+.timeline-item:nth-child(odd)
+.timeline-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 24px;
+
+    right: -66px;
+
+    width: 65px;
+
+    height: 1px;
+
+    background:
+        rgba(
+            120,
+            100,
+            255,
+            0.45
+        );
+
+}
+
+
+.timeline-item:nth-child(even)
+.timeline-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 24px;
+
+    left: -66px;
+
+    width: 65px;
+
+    height: 1px;
+
+    background:
+        rgba(
+            120,
+            100,
+            255,
+            0.45
+        );
+
+}
+
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.timeline-year {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.2em;
+
+    color: var(--accent);
+
+}
+
+
+.timeline-card h2 {
+
+    margin:
+        0 0 12px;
+
+    font-size: 1.55rem;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.025em;
+
+}
+
+
+.timeline-card p {
+
+    margin: 0;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+
+    font-size: 0.92rem;
+
+}
+
+
+.timeline-tag {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding:
+        6px 10px;
+
+    border:
+        1px solid
+        rgba(
+            120,
+            100,
+            255,
+            0.25
+        );
+
+    color: var(--text-muted);
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* =========================================
+   HISTORY END
+========================================= */
+
+.history-end {
+
+    text-align: center;
+
+    padding:
+        20px 30px
+        130px;
+
+}
+
+
+.history-end-line {
+
+    width: 1px;
+
+    height: 80px;
+
+    margin:
+        0 auto 35px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--accent),
+            transparent
+        );
+
+}
+
+
+.history-end h2 {
+
+    margin:
+        0 0 15px;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            4rem
+        );
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.history-end p {
+
+    max-width: 500px;
+
+    margin:
+        0 auto 35px;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 850px) {
+
+    .history-hero {
+
+        min-height: 65vh;
+
+    }
+
+
+    .timeline-section {
+
+        padding:
+            70px 25px
+            120px;
+
+    }
+
+
+    .timeline-item {
+
+        padding-left: 45px;
+
+        padding-right: 45px;
+
+    }
+
+
+    .timeline-card {
+
+        padding: 26px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .history-hero {
+
+        min-height: 65vh;
+
+        padding:
+            130px 20px
+            80px;
+
+    }
+
+
+    .history-hero h1 {
+
+        font-size:
+            clamp(
+                3.5rem,
+                17vw,
+                6rem
+            );
+
+    }
+
+
+    .history-eyebrow {
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.16em;
+
+    }
+
+
+    .history-eyebrow::before {
+
+        width: 20px;
+
+    }
+
+
+    .history-intro {
+
+        font-size: 0.9rem;
+
+        line-height: 1.7;
+
+    }
+
+
+    .timeline-section {
+
+        padding:
+            50px 20px
+            80px;
+
+    }
+
+
+    /*
+        On mobile the timeline moves
+        to the left side.
+    */
+
+    .timeline::before {
+
+        left: 18px;
+
+        transform: none;
+
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+
+        width: 100%;
+
+        left: 0;
+
+        text-align: left;
+
+        padding:
+            0 0 70px
+            55px;
+
+    }
+
+
+    .timeline-item:last-child {
+
+        padding-bottom: 10px;
+
+    }
+
+
+    .timeline-node,
+    .timeline-item:nth-child(odd)
+    .timeline-node,
+    .timeline-item:nth-child(even)
+    .timeline-node {
+
+        left: 9px;
+
+        right: auto;
+
+    }
+
+
+    .timeline-card {
+
+        padding: 24px;
+
+    }
+
+
+    .timeline-item:nth-child(odd)
+    .timeline-card::after,
+    .timeline-item:nth-child(even)
+    .timeline-card::after {
+
+        display: none;
+
+    }
+
+
+    .timeline-card h2 {
+
+        font-size: 1.35rem;
+
+    }
+
+
+    .timeline-card p {
+
+        font-size: 0.88rem;
+
+    }
+
+
+    .history-end {
+
+        padding:
+            0 20px
+            100px;
+
+    }
+
+
+    .history-end h2 {
+
+        font-size:
+            clamp(
+                2rem,
+                10vw,
+                3rem
+            );
+
+    }
+
+}
+
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .history-hero {
+
+        padding-left: 16px;
+
+        padding-right: 16px;
+
+    }
+
+
+    .timeline-section {
+
+        padding-left: 16px;
+
+        padding-right: 16px;
+
+    }
+
+
+    .timeline::before {
+
+        left: 14px;
+
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+
+        padding-left: 42px;
+
+    }
+
+
+    .timeline-node,
+    .timeline-item:nth-child(odd)
+    .timeline-node,
+    .timeline-item:nth-child(even)
+    .timeline-node {
+
+        left: 5px;
+
+    }
+
+
+    .timeline-card {
+
+        padding: 20px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .timeline-card {
+
+        transition: none;
+
+    }
+
+
+    .timeline-card:hover {
+
+        transform: none;
+
+    }
+
+}
