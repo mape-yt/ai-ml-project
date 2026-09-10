@@ -1,0 +1,1729 @@
+/* =========================================================
+   FUTURE PAGE
+========================================================= */
+
+
+/* =========================================================
+   PAGE SCROLL
+========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body.future-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.future-page main {
+    min-height: 100vh;
+}
+
+
+
+/* =========================================================
+   ACCENT TEXT
+========================================================= */
+
+.future-page .accent {
+    color: var(--accent);
+}
+
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.future-hero {
+    position: relative;
+
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 150px 30px 100px;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.future-hero-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    max-width: 950px;
+
+    margin: 0 auto;
+}
+
+
+.future-eyebrow {
+    margin-bottom: 22px;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    opacity: 0.55;
+}
+
+
+.future-hero h1 {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: clamp(4rem, 10vw, 8.5rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -0.06em;
+
+    font-weight: 800;
+}
+
+
+.future-hero h1 span {
+    display: block;
+}
+
+
+.future-hero h1 .accent {
+    position: relative;
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 35px rgba(124, 92, 255, 0.18);
+}
+
+
+.future-intro {
+    max-width: 650px;
+
+    margin: 35px auto 0;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    opacity: 0.58;
+}
+
+
+
+/* =========================================================
+   AI FUTURE CORE
+========================================================= */
+
+.future-core {
+    position: relative;
+
+    width: min(560px, 90vw);
+    height: 300px;
+
+    margin-top: 20px;
+
+    z-index: 2;
+}
+
+
+.future-core::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 150px;
+    height: 150px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 92, 255, 0.3) 0%,
+            rgba(124, 92, 255, 0.1) 35%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    animation: core-pulse 4s ease-in-out infinite;
+}
+
+
+@keyframes core-pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+    }
+
+}
+
+
+
+/* =========================================================
+   ORBIT RINGS
+========================================================= */
+
+.core-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(156, 132, 255, 0.22);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(65deg);
+
+    box-shadow:
+        0 0 20px rgba(124, 92, 255, 0.05);
+
+    pointer-events: none;
+}
+
+
+.orbit-one {
+    width: 280px;
+    height: 280px;
+
+    animation:
+        orbit-spin-one
+        18s linear infinite;
+}
+
+
+.orbit-two {
+    width: 400px;
+    height: 170px;
+
+    animation:
+        orbit-spin-two
+        14s linear infinite reverse;
+}
+
+
+.orbit-three {
+    width: 500px;
+    height: 220px;
+
+    border-style: dashed;
+
+    opacity: 0.5;
+
+    animation:
+        orbit-spin-three
+        24s linear infinite;
+}
+
+
+@keyframes orbit-spin-one {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+
+}
+
+
+@keyframes orbit-spin-two {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+
+}
+
+
+@keyframes orbit-spin-three {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+
+}
+
+
+
+/* =========================================================
+   CORE CENTER
+========================================================= */
+
+.future-core-center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 96px;
+    height: 96px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(156, 132, 255, 0.65);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124, 92, 255, 0.2),
+            rgba(10, 12, 17, 0.96) 65%
+        );
+
+    box-shadow:
+        0 0 25px rgba(124, 92, 255, 0.2),
+        inset 0 0 25px rgba(124, 92, 255, 0.1);
+
+    z-index: 5;
+
+    animation: center-float 4s ease-in-out infinite;
+}
+
+
+@keyframes center-float {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.06);
+    }
+
+}
+
+
+.core-symbol {
+    font-size: 1.45rem;
+
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+
+    color: var(--accent);
+}
+
+
+.core-label {
+    margin-top: 5px;
+
+    font-size: 0.42rem;
+
+    letter-spacing: 0.2em;
+
+    opacity: 0.5;
+}
+
+
+
+/* =========================================================
+   CORE NODES
+========================================================= */
+
+.core-node {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 12px currentColor;
+
+    z-index: 4;
+
+    animation: node-pulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes node-pulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+
+}
+
+
+.node-one {
+    left: 19%;
+    top: 44%;
+}
+
+.node-two {
+    left: 30%;
+    top: 17%;
+}
+
+.node-three {
+    right: 21%;
+    top: 31%;
+}
+
+.node-four {
+    right: 27%;
+    bottom: 17%;
+}
+
+.node-five {
+    left: 22%;
+    bottom: 25%;
+}
+
+.node-six {
+    right: 11%;
+    top: 57%;
+}
+
+
+
+/* =========================================================
+   CORE CONNECTING LINES
+========================================================= */
+
+.core-line {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(156, 132, 255, 0.45),
+            transparent
+        );
+
+    transform-origin: left center;
+
+    opacity: 0.45;
+}
+
+
+.line-one {
+    width: 160px;
+
+    left: 24%;
+    top: 44%;
+
+    transform: rotate(-18deg);
+}
+
+
+.line-two {
+    width: 130px;
+
+    left: 30%;
+    top: 22%;
+
+    transform: rotate(35deg);
+}
+
+
+.line-three {
+    width: 180px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: rotate(-25deg);
+}
+
+
+.line-four {
+    width: 160px;
+
+    left: 49%;
+    top: 54%;
+
+    transform: rotate(31deg);
+}
+
+
+
+/* =========================================================
+   CORE DATA
+========================================================= */
+
+.core-data {
+    position: absolute;
+
+    font-family: monospace;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.15em;
+
+    opacity: 0.25;
+
+    animation: data-flicker 3s ease-in-out infinite;
+}
+
+
+.data-one {
+    left: 12%;
+    top: 30%;
+}
+
+
+.data-two {
+    right: 12%;
+    top: 22%;
+
+    font-size: 1.1rem;
+}
+
+
+.data-three {
+    right: 17%;
+    bottom: 19%;
+}
+
+
+@keyframes data-flicker {
+
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+}
+
+
+
+/* =========================================================
+   FUTURE SECTION
+========================================================= */
+
+.future-section {
+    position: relative;
+
+    padding: 80px 30px 150px;
+}
+
+
+.future-section-heading {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+
+.future-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+
+    font-weight: 800;
+}
+
+
+.future-section-heading h2 .accent {
+    color: var(--accent);
+
+    text-shadow:
+        0 0 30px rgba(124, 92, 255, 0.16);
+}
+
+
+.future-section-heading p {
+    max-width: 650px;
+
+    margin: 25px auto 0;
+
+    line-height: 1.8;
+
+    opacity: 0.55;
+}
+
+
+
+/* =========================================================
+   FUTURE GRID
+========================================================= */
+
+.future-grid {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+
+/* =========================================================
+   FUTURE CARD
+========================================================= */
+
+.future-card {
+    position: relative;
+
+    min-height: 350px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.future-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 92, 255, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+.future-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(156, 132, 255, 0.35);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.25),
+        0 0 35px rgba(124, 92, 255, 0.08);
+}
+
+
+
+/* =========================================================
+   CARD VISUAL
+========================================================= */
+
+.future-card-visual {
+    position: relative;
+
+    width: 100%;
+    height: 105px;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    background:
+        rgba(255, 255, 255, 0.015);
+}
+
+
+.future-card-number {
+    font-family: monospace;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.15em;
+
+    color: var(--accent);
+
+    opacity: 0.65;
+}
+
+
+.future-card h3 {
+    margin: 12px 0 10px;
+
+    font-size: 1.65rem;
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+
+.future-card p {
+    max-width: 500px;
+
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+    opacity: 0.52;
+}
+
+
+.future-card-footer {
+    margin-top: auto;
+    padding-top: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: monospace;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.15em;
+
+    opacity: 0.35;
+}
+
+
+.future-arrow {
+    font-size: 1rem;
+
+    color: var(--accent);
+
+    opacity: 0.8;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.future-card:hover .future-arrow {
+    transform: translate(3px, -3px);
+
+    opacity: 1;
+}
+
+
+
+/* =========================================================
+   VISUAL 01 — ORBIT RING
+========================================================= */
+
+.visual-ring {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.visual-ring-circle {
+    position: absolute;
+
+    width: 72px;
+    height: 72px;
+
+    border:
+        1px solid rgba(156, 132, 255, 0.5);
+
+    border-radius: 50%;
+
+    animation:
+        card-spin 8s linear infinite;
+}
+
+
+.visual-ring-circle::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    top: -3px;
+    left: 50%;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 10px var(--accent);
+}
+
+
+.visual-ring-circle.small {
+    width: 42px;
+    height: 42px;
+
+    border-style: dashed;
+
+    animation-duration: 5s;
+
+    animation-direction: reverse;
+}
+
+
+.visual-ring > span {
+    position: relative;
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    color: var(--accent);
+
+    opacity: 0.5;
+}
+
+
+@keyframes card-spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+
+/* =========================================================
+   VISUAL 02 — NETWORK
+========================================================= */
+
+.visual-network {
+    position: relative;
+}
+
+
+.network-dot {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 12px var(--accent);
+
+    animation:
+        network-pulse 2s ease-in-out infinite;
+}
+
+
+.dot-a {
+    left: 18%;
+    top: 48%;
+}
+
+
+.dot-b {
+    left: 40%;
+    top: 22%;
+}
+
+
+.dot-c {
+    right: 23%;
+    top: 35%;
+}
+
+
+.dot-d {
+    right: 15%;
+    bottom: 18%;
+}
+
+
+.network-line {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(156, 132, 255, 0.55),
+            transparent
+        );
+
+    transform-origin: left center;
+}
+
+
+.network-a {
+    width: 130px;
+
+    left: 20%;
+    top: 49%;
+
+    transform: rotate(-27deg);
+}
+
+
+.network-b {
+    width: 150px;
+
+    left: 42%;
+    top: 24%;
+
+    transform: rotate(20deg);
+}
+
+
+.network-c {
+    width: 115px;
+
+    left: 43%;
+    top: 28%;
+
+    transform: rotate(53deg);
+}
+
+
+@keyframes network-pulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+    }
+
+}
+
+
+
+/* =========================================================
+   VISUAL 03 — DATA BARS
+========================================================= */
+
+.visual-bars {
+    padding:
+        20px 30px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 9px;
+}
+
+
+.visual-bars span {
+    display: block;
+
+    width: 12px;
+
+    border-radius: 2px 2px 0 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(124, 92, 255, 0.2),
+            rgba(156, 132, 255, 0.8)
+        );
+
+    animation:
+        bar-rise 2.2s ease-in-out infinite;
+}
+
+
+.visual-bars span:nth-child(1) {
+    height: 28%;
+}
+
+
+.visual-bars span:nth-child(2) {
+    height: 52%;
+
+    animation-delay: 0.15s;
+}
+
+
+.visual-bars span:nth-child(3) {
+    height: 75%;
+
+    animation-delay: 0.3s;
+}
+
+
+.visual-bars span:nth-child(4) {
+    height: 45%;
+
+    animation-delay: 0.45s;
+}
+
+
+.visual-bars span:nth-child(5) {
+    height: 90%;
+
+    animation-delay: 0.6s;
+}
+
+
+@keyframes bar-rise {
+
+    0%,
+    100% {
+        transform: scaleY(0.75);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+}
+
+
+
+/* =========================================================
+   VISUAL 04 — TARGET
+========================================================= */
+
+.visual-target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.target-circle {
+    position: absolute;
+
+    width: 85px;
+    height: 85px;
+
+    border:
+        1px solid rgba(156, 132, 255, 0.2);
+
+    border-radius: 50%;
+}
+
+
+.target-circle.middle {
+    width: 55px;
+    height: 55px;
+
+    border-color:
+        rgba(156, 132, 255, 0.4);
+}
+
+
+.target-circle.inner {
+    width: 20px;
+    height: 20px;
+
+    border-color:
+        rgba(156, 132, 255, 0.8);
+
+    background:
+        rgba(124, 92, 255, 0.12);
+
+    box-shadow:
+        0 0 18px rgba(124, 92, 255, 0.3);
+
+    animation:
+        target-pulse 2s ease-in-out infinite;
+}
+
+
+@keyframes target-pulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+
+/* =========================================================
+   VISUAL 05 — WAVE
+========================================================= */
+
+.visual-wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+}
+
+
+.visual-wave span {
+    width: 3px;
+    height: 40px;
+
+    border-radius: 10px;
+
+    background: var(--accent);
+
+    opacity: 0.5;
+
+    animation:
+        wave 1.4s ease-in-out infinite;
+}
+
+
+.visual-wave span:nth-child(1) {
+    animation-delay: -0.5s;
+}
+
+
+.visual-wave span:nth-child(2) {
+    animation-delay: -0.4s;
+}
+
+
+.visual-wave span:nth-child(3) {
+    animation-delay: -0.3s;
+}
+
+
+.visual-wave span:nth-child(4) {
+    animation-delay: -0.2s;
+}
+
+
+.visual-wave span:nth-child(5) {
+    animation-delay: -0.1s;
+}
+
+
+.visual-wave span:nth-child(6) {
+    animation-delay: 0s;
+}
+
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: scaleY(0.45);
+    }
+
+    50% {
+        transform: scaleY(1.5);
+    }
+
+}
+
+
+
+/* =========================================================
+   VISUAL 06 — CORE
+========================================================= */
+
+.visual-core {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.mini-core {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(156, 132, 255, 0.5);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 25px rgba(124, 92, 255, 0.15);
+
+    animation:
+        mini-core-pulse 3s ease-in-out infinite;
+}
+
+
+.mini-core::before,
+.mini-core::after {
+    content: "";
+
+    position: absolute;
+
+    border:
+        1px solid rgba(156, 132, 255, 0.18);
+
+    border-radius: 50%;
+}
+
+
+.mini-core::before {
+    width: 82px;
+    height: 82px;
+}
+
+
+.mini-core::after {
+    width: 105px;
+    height: 42px;
+
+    transform:
+        rotate(55deg);
+}
+
+
+.mini-core span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 15px var(--accent);
+}
+
+
+@keyframes mini-core-pulse {
+
+    0%,
+    100% {
+        transform: scale(0.92);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+
+
+/* =========================================================
+   END SECTION
+========================================================= */
+
+.future-end {
+    position: relative;
+
+    min-height: 65vh;
+
+    padding: 100px 30px 130px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.future-end-visual {
+    position: relative;
+
+    width: 190px;
+    height: 110px;
+
+    margin-bottom: 35px;
+}
+
+
+.end-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border:
+        1px solid rgba(156, 132, 255, 0.22);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(65deg);
+}
+
+
+.orbit-a {
+    width: 170px;
+    height: 65px;
+
+    animation:
+        end-orbit-spin
+        8s linear infinite;
+}
+
+
+.orbit-b {
+    width: 110px;
+    height: 110px;
+
+    animation:
+        end-orbit-spin
+        11s linear infinite reverse;
+}
+
+
+.end-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 52px;
+    height: 52px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(156, 132, 255, 0.55);
+
+    border-radius: 50%;
+
+    background:
+        rgba(10, 12, 17, 0.95);
+
+    color: var(--accent);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 25px rgba(124, 92, 255, 0.2);
+}
+
+
+@keyframes end-orbit-spin {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+
+}
+
+
+.future-end h2 {
+    margin: 0;
+
+    max-width: 900px;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 800;
+}
+
+
+.future-end h2 .accent {
+    color: var(--accent);
+
+    text-shadow:
+        0 0 35px rgba(124, 92, 255, 0.18);
+}
+
+
+.future-end p {
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    line-height: 1.8;
+
+    opacity: 0.55;
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .future-core {
+        width: min(500px, 95vw);
+    }
+
+
+    .orbit-three {
+        width: 440px;
+    }
+
+
+    .future-grid {
+        gap: 16px;
+    }
+
+
+    .future-card {
+        padding: 25px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .future-hero {
+        min-height: 80vh;
+
+        padding:
+            130px 20px 70px;
+    }
+
+
+    .future-eyebrow {
+        font-size: 0.62rem;
+
+        letter-spacing: 0.15em;
+    }
+
+
+    .future-hero h1 {
+        font-size:
+            clamp(3.4rem, 15vw, 5.5rem);
+    }
+
+
+    .future-intro {
+        margin-top: 25px;
+
+        font-size: 0.9rem;
+    }
+
+
+    .future-core {
+        width: 100%;
+        height: 230px;
+
+        margin-top: 10px;
+    }
+
+
+    .orbit-one {
+        width: 210px;
+        height: 210px;
+    }
+
+
+    .orbit-two {
+        width: 290px;
+        height: 125px;
+    }
+
+
+    .orbit-three {
+        width: 340px;
+        height: 160px;
+    }
+
+
+    .future-core-center {
+        width: 78px;
+        height: 78px;
+    }
+
+
+    .core-symbol {
+        font-size: 1.15rem;
+    }
+
+
+    .core-label {
+        font-size: 0.35rem;
+    }
+
+
+    .future-section {
+        padding:
+            55px 20px 90px;
+    }
+
+
+    .future-section-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .future-section-heading h2 {
+        font-size:
+            clamp(2.5rem, 12vw, 4rem);
+    }
+
+
+    .future-section-heading p {
+        font-size: 0.9rem;
+    }
+
+
+    .future-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .future-card {
+        min-height: 320px;
+
+        padding: 24px;
+    }
+
+
+    .future-card-visual {
+        height: 95px;
+    }
+
+
+    .future-card h3 {
+        font-size: 1.45rem;
+    }
+
+
+    .future-end {
+        min-height: 60vh;
+
+        padding:
+            80px 20px 100px;
+    }
+
+
+    .future-end h2 {
+        font-size:
+            clamp(2.8rem, 13vw, 5rem);
+    }
+
+
+    .future-end p {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .future-hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .future-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .future-card {
+        padding: 20px;
+    }
+
+
+    .future-core {
+        height: 200px;
+    }
+
+
+    .orbit-one {
+        width: 180px;
+        height: 180px;
+    }
+
+
+    .orbit-two {
+        width: 250px;
+        height: 110px;
+    }
+
+
+    .orbit-three {
+        width: 290px;
+        height: 135px;
+    }
+
+}
+
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .future-core *,
+    .future-card *,
+    .future-end-visual * {
+        animation: none !important;
+    }
+
+}
