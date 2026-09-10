@@ -7,12 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initScrollReveal();
     initCursorGlow();
-    initCardTilt();
+    initCardInteraction();
     initOrbParallax();
     initButtonRipples();
     initNavbar();
     initMobileMenu();
     initNetworkAnimation();
+    initSmoothAnchorLinks();
 
 });
 
@@ -24,15 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initScrollReveal() {
 
-    const elements = document.querySelectorAll(
-        ".section-header, " +
-        ".large-placeholder-card, " +
-        ".small-placeholder-card, " +
-        ".topic-card, " +
-        ".visual-text, " +
-        ".visual-network, " +
-        ".final-content"
-    );
+    const elements =
+        document.querySelectorAll(
+            ".section-header, " +
+            ".large-placeholder-card, " +
+            ".small-placeholder-card, " +
+            ".topic-card, " +
+            ".ai-summary, " +
+            ".about-action, " +
+            ".visual-text, " +
+            ".visual-network, " +
+            ".final-content"
+        );
+
+
+    if (!elements.length) {
+        return;
+    }
 
 
     elements.forEach((element, index) => {
@@ -40,23 +49,41 @@ function initScrollReveal() {
         element.classList.add("reveal");
 
 
-        if (
+        const isCard =
             element.classList.contains(
                 "small-placeholder-card"
             ) ||
             element.classList.contains(
                 "topic-card"
-            )
-        ) {
+            );
+
+
+        if (isCard) {
 
             element.style.setProperty(
                 "--reveal-delay",
-                `${(index % 4) * 80}ms`
+                `${(index % 4) * 90}ms`
             );
 
         }
 
     });
+
+
+    if (
+        !("IntersectionObserver" in window)
+    ) {
+
+        elements.forEach((element) => {
+
+            element.classList.add(
+                "revealed"
+            );
+
+        });
+
+        return;
+    }
 
 
     const observer =
@@ -83,10 +110,10 @@ function initScrollReveal() {
 
             },
             {
-                threshold: 0.12,
+                threshold: 0.10,
 
                 rootMargin:
-                    "0px 0px -50px 0px"
+                    "0px 0px -45px 0px"
             }
         );
 
@@ -157,6 +184,9 @@ function initCursorGlow() {
             mouseY =
                 event.clientY;
 
+        },
+        {
+            passive: true
         }
     );
 
@@ -164,11 +194,11 @@ function initCursorGlow() {
     function animate() {
 
         currentX +=
-            (mouseX - currentX) * 0.12;
+            (mouseX - currentX) * 0.10;
 
 
         currentY +=
-            (mouseY - currentY) * 0.12;
+            (mouseY - currentY) * 0.10;
 
 
         glow.style.transform =
@@ -189,10 +219,10 @@ function initCursorGlow() {
 
 
 /* =========================================
-   CARD 3D TILT
+   CARD INTERACTION
 ========================================= */
 
-function initCardTilt() {
+function initCardInteraction() {
 
     const isTouchDevice =
         window.matchMedia(
@@ -233,24 +263,6 @@ function initCardTilt() {
                     rect.top;
 
 
-                const centerX =
-                    rect.width / 2;
-
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const rotateX =
-                    ((y - centerY) /
-                        centerY) * -3;
-
-
-                const rotateY =
-                    ((x - centerX) /
-                        centerX) * 3;
-
-
                 card.style.setProperty(
                     "--mouse-x",
                     `${x}px`
@@ -263,11 +275,45 @@ function initCardTilt() {
                 );
 
 
-                card.style.transform =
-                    `perspective(900px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-6px)`;
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    ((y - centerY) /
+                        centerY) * -1.6;
+
+
+                const rotateY =
+                    ((x - centerX) /
+                        centerX) * 1.6;
+
+
+                if (
+                    card.classList.contains(
+                        "topic-card"
+                    )
+                ) {
+
+                    card.style.transform =
+                        `perspective(1000px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)
+                         translateY(-7px)`;
+
+                } else {
+
+                    card.style.transform =
+                        `perspective(1000px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)
+                         translateY(-3px)`;
+
+                }
 
             }
         );
@@ -290,7 +336,7 @@ function initCardTilt() {
 
 
 /* =========================================
-   ORB PARALLAX
+   HERO ORB PARALLAX
 ========================================= */
 
 function initOrbParallax() {
@@ -317,35 +363,69 @@ function initOrbParallax() {
     }
 
 
+    let targetX = 0;
+    let targetY = 0;
+
+    let currentX = 0;
+    let currentY = 0;
+
+
     document.addEventListener(
         "mousemove",
         (event) => {
 
-            const x =
-                event.clientX /
-                window.innerWidth -
-                0.5;
+            targetX =
+                (
+                    event.clientX /
+                    window.innerWidth -
+                    0.5
+                ) * 14;
 
 
-            const y =
-                event.clientY /
-                window.innerHeight -
-                0.5;
+            targetY =
+                (
+                    event.clientY /
+                    window.innerHeight -
+                    0.5
+                ) * 14;
 
-
-            const moveX =
-                x * 18;
-
-
-            const moveY =
-                y * 18;
-
-
-            visual.style.transform =
-                `translate3d(${moveX}px, ${moveY}px, 0)`;
-
+        },
+        {
+            passive: true
         }
     );
+
+
+    function animate() {
+
+        currentX +=
+            (targetX - currentX) * 0.08;
+
+
+        currentY +=
+            (targetY - currentY) * 0.08;
+
+
+        visual.style.setProperty(
+            "--parallax-x",
+            `${currentX}px`
+        );
+
+
+        visual.style.setProperty(
+            "--parallax-y",
+            `${currentY}px`
+        );
+
+
+        requestAnimationFrame(
+            animate
+        );
+
+    }
+
+
+    animate();
 
 }
 
@@ -400,7 +480,7 @@ function initButtonRipples() {
 
                     ripple.remove();
 
-                }, 600);
+                }, 700);
 
             }
         );
@@ -428,45 +508,36 @@ function initNavbar() {
     }
 
 
-    window.addEventListener(
-        "scroll",
-        () => {
+    function updateNavbar() {
 
-            const currentScrollY =
-                window.scrollY;
+        if (window.scrollY > 30) {
 
-
-            /*
-                Add the scrolled state so the
-                navbar can change appearance
-                after the user starts scrolling.
-            */
-
-            if (currentScrollY > 30) {
-
-                navbar.classList.add(
-                    "navbar-scrolled"
-                );
-
-            } else {
-
-                navbar.classList.remove(
-                    "navbar-scrolled"
-                );
-
-            }
-
-
-            /*
-                The navbar intentionally stays
-                visible while scrolling.
-            */
-
-            navbar.classList.remove(
-                "navbar-hidden"
+            navbar.classList.add(
+                "navbar-scrolled"
             );
 
-        },
+        } else {
+
+            navbar.classList.remove(
+                "navbar-scrolled"
+            );
+
+        }
+
+
+        navbar.classList.remove(
+            "navbar-hidden"
+        );
+
+    }
+
+
+    updateNavbar();
+
+
+    window.addEventListener(
+        "scroll",
+        updateNavbar,
         {
             passive: true
         }
@@ -516,11 +587,6 @@ function initMobileMenu() {
         );
 
 
-
-    /* =================================
-       OPEN MENU
-    ================================= */
-
     function openMenu() {
 
         navbar.classList.add(
@@ -539,18 +605,8 @@ function initMobileMenu() {
             "Close navigation menu"
         );
 
-
-        navbar.classList.remove(
-            "navbar-hidden"
-        );
-
     }
 
-
-
-    /* =================================
-       CLOSE MENU
-    ================================= */
 
     function closeMenu() {
 
@@ -572,11 +628,6 @@ function initMobileMenu() {
 
     }
 
-
-
-    /* =================================
-       TOGGLE MENU
-    ================================= */
 
     menuToggle.addEventListener(
         "click",
@@ -602,11 +653,6 @@ function initMobileMenu() {
     );
 
 
-
-    /* =================================
-       CLOSE AFTER NAVIGATION
-    ================================= */
-
     mobileLinks.forEach((link) => {
 
         link.addEventListener(
@@ -620,11 +666,6 @@ function initMobileMenu() {
 
     });
 
-
-
-    /* =================================
-       ESCAPE KEY
-    ================================= */
 
     document.addEventListener(
         "keydown",
@@ -647,11 +688,6 @@ function initMobileMenu() {
     );
 
 
-
-    /* =================================
-       CLOSE ON DESKTOP RESIZE
-    ================================= */
-
     window.addEventListener(
         "resize",
         () => {
@@ -672,7 +708,7 @@ function initMobileMenu() {
 
 
 /* =========================================
-   NETWORK NODE ANIMATION
+   NETWORK ANIMATION
 ========================================= */
 
 function initNetworkAnimation() {
@@ -693,10 +729,95 @@ function initNetworkAnimation() {
 
             node.style.setProperty(
                 "--node-delay",
-                `${index * 700}ms`
+                `${index * 650}ms`
             );
 
         }
     );
+
+}
+
+
+
+/* =========================================
+   SMOOTH ANCHOR LINKS
+========================================= */
+
+function initSmoothAnchorLinks() {
+
+    const links =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    links.forEach((link) => {
+
+        link.addEventListener(
+            "click",
+            (event) => {
+
+                const targetId =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+
+                    return;
+                }
+
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if (!target) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                const navbar =
+                    document.querySelector(
+                        ".navbar"
+                    );
+
+
+                const navbarHeight =
+                    navbar
+                        ? navbar.offsetHeight
+                        : 0;
+
+
+                const targetPosition =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    navbarHeight -
+                    12;
+
+
+                window.scrollTo({
+
+                    top:
+                        targetPosition,
+
+                    behavior:
+                        "smooth"
+
+                });
+
+            }
+        );
+
+    });
 
 }

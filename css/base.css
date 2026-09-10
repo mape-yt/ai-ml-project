@@ -11,10 +11,14 @@
 
 html {
     scroll-behavior: smooth;
+
+    background:
+        var(--background-deep);
 }
 
 
 body {
+
     min-width: 280px;
 
     font-family:
@@ -24,9 +28,11 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: var(--background);
+    background:
+        var(--background);
 
-    color: var(--text);
+    color:
+        var(--text);
 
     overflow-x: hidden;
 
@@ -36,22 +42,133 @@ body {
 }
 
 
+body::selection {
+
+    background:
+        rgba(114, 87, 255, 0.35);
+
+    color:
+        white;
+}
+
+
 a {
+
     color: inherit;
 
     text-decoration: none;
 }
 
 
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+button {
+
+    font: inherit;
+}
+
+
 img,
 svg {
+
     display: block;
 
     max-width: 100%;
 }
 
 
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
+main {
+
+    position: relative;
+
+    overflow: clip;
+}
+
+
+section {
+
+    position: relative;
+}
+
+
+h1,
+h2,
+h3,
+p {
+
+    overflow-wrap: normal;
+
+    word-break: normal;
+}
+
+
+h1,
+h2,
+h3 {
+
+    text-wrap: balance;
+}
+
+
+p {
+
+    text-wrap: pretty;
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+
+    outline:
+        2px solid
+        var(--accent-light);
+
+    outline-offset: 5px;
+}
+
+
+/* =========================================
+   CUSTOM SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #06080d;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--accent),
+            var(--accent-light)
+        );
+
+    border-radius:
+        999px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--accent-bright);
 }

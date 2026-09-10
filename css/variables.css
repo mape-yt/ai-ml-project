@@ -1,69 +1,143 @@
 /* =========================================
-   VARIABLES
+   AI × ML RESEARCH
+   DESIGN SYSTEM
 ========================================= */
 
 :root {
 
     /* =========================================
-       DARK THEME
+       BACKGROUNDS
     ========================================= */
 
-    --background: #080B12;
+    --background: #07090f;
 
-    --surface: #111722;
+    --background-deep: #040509;
 
-    --surface-light: #192131;
+    --surface: #0c1019;
+
+    --surface-light: #121827;
+
+    --surface-bright: #182033;
 
 
     /* =========================================
-       LIGHT THEME
+       LIGHT SECTIONS
     ========================================= */
 
-    --section-light: #E8ECF3;
+    --section-light: #edf0f5;
 
-    --section-light-surface: #F5F7FA;
+    --section-light-alt: #e5e9f0;
 
-    --section-light-surface-alt: #DDE3EC;
+    --section-light-surface: #f7f8fb;
+
+    --section-light-surface-alt: #dfe4ec;
 
 
     /* =========================================
        BORDERS
     ========================================= */
 
-    --border: rgba(255, 255, 255, 0.10);
+    --border:
+        rgba(255, 255, 255, 0.09);
 
-    --border-bright: rgba(255, 255, 255, 0.20);
+    --border-bright:
+        rgba(255, 255, 255, 0.20);
 
-    --light-border: rgba(10, 15, 25, 0.12);
+    --border-accent:
+        rgba(148, 127, 255, 0.35);
 
-    --light-border-bright: rgba(10, 15, 25, 0.20);
+    --light-border:
+        rgba(10, 15, 25, 0.11);
+
+    --light-border-bright:
+        rgba(10, 15, 25, 0.20);
 
 
     /* =========================================
        DARK TEXT
     ========================================= */
 
-    --text: #F4F6FA;
+    --text: #f5f7fb;
 
-    --text-muted: #8993A5;
+    --text-soft: #c8ceda;
+
+    --text-muted: #8791a4;
+
+    --text-dim: #596274;
 
 
     /* =========================================
        LIGHT TEXT
     ========================================= */
 
-    --light-text: #0A0F18;
+    --light-text: #080d16;
 
-    --light-text-muted: #5D6675;
+    --light-text-soft: #252d3b;
+
+    --light-text-muted: #626c7c;
 
 
     /* =========================================
        ACCENT
     ========================================= */
 
-    --accent: #7257FF;
+    --accent: #7257ff;
 
-    --accent-light: #947FFF;
+    --accent-light: #9a87ff;
+
+    --accent-bright: #b4a5ff;
+
+    --accent-blue: #4d7cff;
+
+
+    /* =========================================
+       GRADIENTS
+    ========================================= */
+
+    --gradient-accent:
+        linear-gradient(
+            135deg,
+            #7257ff 0%,
+            #9a87ff 55%,
+            #6e9aff 100%
+        );
+
+    --gradient-dark:
+        linear-gradient(
+            135deg,
+            #07090f 0%,
+            #0b101a 55%,
+            #07090f 100%
+        );
+
+    --gradient-light:
+        linear-gradient(
+            135deg,
+            #edf0f5 0%,
+            #f5f7fa 50%,
+            #e5e9f0 100%
+        );
+
+
+    /* =========================================
+       SHADOWS
+    ========================================= */
+
+    --shadow-small:
+        0 10px 30px
+        rgba(0, 0, 0, 0.12);
+
+    --shadow-medium:
+        0 25px 70px
+        rgba(0, 0, 0, 0.20);
+
+    --shadow-large:
+        0 40px 120px
+        rgba(0, 0, 0, 0.28);
+
+    --shadow-accent:
+        0 20px 80px
+        rgba(114, 87, 255, 0.22);
 
 
     /* =========================================
@@ -72,9 +146,41 @@
 
     --max-width: 1400px;
 
+    --content-width: 1180px;
+
     --page-padding:
         clamp(20px, 5vw, 80px);
 
     --section-padding:
         clamp(90px, 11vw, 170px);
+
+
+    /* =========================================
+       RADIUS
+    ========================================= */
+
+    --radius-small: 4px;
+
+    --radius-medium: 10px;
+
+    --radius-large: 18px;
+
+    --radius-pill: 999px;
+
+
+    /* =========================================
+       TRANSITIONS
+    ========================================= */
+
+    --ease:
+        cubic-bezier(0.16, 1, 0.3, 1);
+
+    --transition-fast:
+        0.2s var(--ease);
+
+    --transition:
+        0.35s var(--ease);
+
+    --transition-slow:
+        0.7s var(--ease);
 }
